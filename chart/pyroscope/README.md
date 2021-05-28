@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.32](https://img.shields.io/badge/AppVersion-0.0.32-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.32](https://img.shields.io/badge/AppVersion-0.0.32-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -45,10 +45,10 @@ helm delete my-release
 | ingress.annotations | object | `{}` | Ingress annotations (values are templated) |
 | ingress.enabled | bool | `false` | Enables Ingress |
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
-| ingress.tls | list | `[]` | Ingress TLS configuration    |
+| ingress.tls | list | `[]` | Ingress TLS configuration |
 | nameOverride | string | `""` | Defaults to .Chart.Name |
 | nodeSelector | object | `{}` | Node labels for pod assignment |
-| persistence.accessModes | list | `["ReadWriteOnce"]` | Persistence access modes   |
+| persistence.accessModes | list | `["ReadWriteOnce"]` | Persistence access modes |
 | persistence.enabled | bool | `false` | Use persistent volume to store data |
 | persistence.finalizers | list | `["kubernetes.io/pvc-protection"]` | PersistentVolumeClaim finalizers |
 | persistence.size | string | `"10Gi"` | Size of persistent volume claim |
