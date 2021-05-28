@@ -11,7 +11,7 @@ Contributions are welcome via GitHub pull requests. This document outlines the p
 
 * Must follow [Charts best practices](https://helm.sh/docs/topics/chart_best_practices/)
 * Must pass CI jobs for linting and installing changed charts with the [chart-testing](https://github.com/helm/chart-testing) tool
-* Must pass Check Docs job for updating [README.md](./chart/README.md) with [helm-docs](https://github.com/norwoodj/helm-docs) tool, this is only required in case of any changes in [values](./chart/values.yaml)
+* Must pass Check Docs job for updating [README.md](./chart/pyroscope/README.md) with [helm-docs](https://github.com/norwoodj/helm-docs) tool, this is only required in case of any changes in [values](./chart/pyroscope/values.yaml)
 * Any change to a chart requires a version bump following [semver](https://semver.org/) principles. See [Immutability](#immutability) and [Versioning](#versioning) below
 
 Once changes have been merged, the release job will automatically run to package and release changed charts.
@@ -24,7 +24,7 @@ Chart releases must be immutable. Any change to a chart warrants a chart version
 
 The chart `version` should follow [semver](https://semver.org/).
 
-Charts should start at `1.0.0`. Any breaking (backwards incompatible) changes to a chart should:
+Any breaking (backwards incompatible) changes to a chart should:
 
 1. Bump the MAJOR version
 2. In the README, under a section called "Upgrading", describe the manual steps necessary to upgrade to the new (specified) MAJOR version
