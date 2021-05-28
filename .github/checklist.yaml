@@ -1,3 +1,0 @@
-paths:
-  "chart/values.yaml":
-    - "Is the PR adding a new parameter? Please, ensure it’s documented in the README.md"
