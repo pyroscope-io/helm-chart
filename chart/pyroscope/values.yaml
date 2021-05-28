@@ -79,7 +79,7 @@ persistence:
   enabled: false
   # storageClassName: default
 
-  # -- Persistence access modes  
+  # -- Persistence access modes
   accessModes:
     - ReadWriteOnce
   # -- Size of persistent volume claim
@@ -140,7 +140,7 @@ ingress:
 ## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
 ## See https://kubernetes.io/blog/2020/04/02 improvements-to-the-ingress-api-in-kubernetes-1.18/#better-path-matching-with-path-types
 
-  # -- Ingress TLS configuration   
+  # -- Ingress TLS configuration
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
