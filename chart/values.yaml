@@ -12,8 +12,8 @@ image:
   repository: pyroscope/pyroscope
   # -- Image pull policy
   pullPolicy: IfNotPresent
-  # -- Tag for pyroscope image to use default is latest
-  tag: ""
+  # -- Tag for pyroscope image to use
+  tag: "0.0.32"
 
 # -- Image pull secrets
 imagePullSecrets: []
