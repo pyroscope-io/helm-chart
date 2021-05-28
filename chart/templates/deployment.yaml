@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "pyroscope.fullname" . }}
+  labels:
+    {{- include "pyroscope.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "pyroscope.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum  }}
+        {{- with .Values.podAnnotations }}
+        {{ toYaml .Values.podAnnotations | nindent 8 }} 
+        {{- end }} 
+      labels:
+        {{  include "pyroscope.selectorLabels" . | nindent 8 }} 
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "pyroscope.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          args:
+            - "server"
+            - "-config"
+            - "/tmp/config.yaml"
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: api
+              containerPort: {{ index .Values.pyroscopeConfigs "api-bind-addr" | int | default 4040 }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config 
+              mountPath: /tmp/config.yaml
+              subPath: config.yaml
+            {{- if .Values.persistence.enabled }}
+            - name: storage 
+              mountPath: {{ index .Values.pyroscopeConfigs "storage-path" | default "/var/lib/pyroscope" }}
+            {{- end }}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "pyroscope.fullname" . }}
+        {{- if .Values.persistence.enabled }}
+        - name: storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "pyroscope.fullname" .) }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

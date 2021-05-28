@@ -1,0 +1,43 @@
+{{ template "chart.header" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+
+## Get the Repo of Pyrscope
+
+```console
+
+helm repo add pyroscope-io https://pyroscope-io.github.com/helm-chart
+
+```
+
+
+## Installing the Chart
+
+
+To install the chart with the release name `my-release`:
+
+
+```console
+
+helm install my-release pyroscope-io/pyroscope
+
+```
+
+## Uninstalling the Chart
+
+To uninstall/delete the my-release deployment:
+
+```console
+
+helm delete my-release
+
+```
+
+{{ template "chart.valuesSection" . }}

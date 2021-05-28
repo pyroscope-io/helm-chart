@@ -1,0 +1,169 @@
+# Default values for pyroscope.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# -- Defaults to .Chart.Name
+nameOverride: ""
+# -- Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope"
+fullnameOverride: ""
+
+image:
+  # -- image to use for deploying
+  repository: pyroscope/pyroscope
+  # -- Image pull policy
+  pullPolicy: IfNotPresent
+  # -- Tag for pyroscope image to use default is latest
+  tag: ""
+
+# -- Image pull secrets
+imagePullSecrets: []
+
+serviceAccount:
+  # Specifies whether a service account should be created
+
+  # -- Create service account
+  create: true
+# The name of the service account to use.
+# If not set and create is true, a name is generated using the fullname template
+
+  # -- Service account name to use, when empty will be set to created account if serviceAccount.create is set else to default
+  name: ""
+  # Annotations to add to the service account
+
+  # -- ServiceAccount annotations
+  annotations: {}
+
+# -- Map of pyroscope configs to be used for ref default: https://pyroscope.io/docs/configuration#self-documented-server-config
+pyroscopeConfigs:
+  # disables analytics
+  analytics-opt-out: "false"
+
+  # log level: debug|info|warn|error
+  log-level: "info"
+
+  # log level: debug|info|warn|error
+  badger-log-level: "error"
+
+  # directory where pyroscope stores profiling data
+  storage-path: "/var/lib/pyroscope"
+
+  # port for the HTTP server used for data ingestion and web UI
+  api-bind-addr: ":4040"
+
+  # base URL for when the server is behind a reverse proxy with a different path
+  base-url: ""
+
+  # max number of elements in LRU cache for dimensions
+  cache-dimension-size: "1000"
+
+  # max number of elements in LRU cache for dictionaries
+  cache-dictionary-size: "1000"
+
+  # max number of elements in LRU cache for segments
+  cache-segment-size: "1000"
+
+  # max number of elements in LRU cache for trees
+  cache-tree-size: "10000"
+
+  # max number of nodes used when saving profiles to disk
+  max-nodes-serialization: "2048"
+
+  # max number of nodes used to display data on the frontend
+  max-nodes-render: "2048"
+
+ ## Enable persistence using Persistent Volume Claims
+ ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+
+persistence:
+  # -- Use persistent volume to store data
+  enabled: false
+  # storageClassName: default
+
+  # -- Persistence access modes  
+  accessModes:
+    - ReadWriteOnce
+  # -- Size of persistent volume claim
+  size: 10Gi
+  # annotations: {}
+
+  # -- PersistentVolumeClaim finalizers
+  finalizers:
+    - kubernetes.io/pvc-protection
+  # selectorLabels: {}
+  # existingClaim:
+
+# -- Pod annotations
+podAnnotations: {}
+
+# -- Pod securityContext
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# -- Deployment securityContext
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
+
+  # --  Specify a service type
+  type: ClusterIP
+  # -- Kubernetes port where service is exposed
+  port: 4040
+  # nodePort:
+
+  # -- Service annotations
+  annotations: {}
+  # nodePort:
+  # loadBalancerIP:
+
+ingress:
+  # -- Enables Ingress
+  enabled: false
+  # -- Ingress annotations (values are templated)
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+
+  # -- Ingress accepted hostnames
+  hosts:
+    - host: chart-example.local
+      paths:
+      - path: /
+        pathType: Prefix
+
+## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
+## See https://kubernetes.io/blog/2020/04/02 improvements-to-the-ingress-api-in-kubernetes-1.18/#better-path-matching-with-path-types
+
+  # -- Ingress TLS configuration   
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# -- CPU/Memory resource requests/limits
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# -- Node labels for pod assignment
+nodeSelector: {}
+
+# -- Toleration labels for pod assignment
+tolerations: []
+
+# -- Affinity settings for pod assignment
+affinity: {}
