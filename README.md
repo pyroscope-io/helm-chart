@@ -9,7 +9,7 @@ The code is provided as-is with no warranties.
 [Helm](https://helm.sh) must be installed to use the chart.
 Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 
-## Get the Repo of Pyrscope
+### Get the Repo of Pyrscope
 
 ```console
 
@@ -17,7 +17,7 @@ helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart
 
 ```
 
-## Installing the Chart
+### Installing the Chart
 
 To install the chart with the release name `my-release`:
 
@@ -27,7 +27,7 @@ helm install my-release pyroscope-io/pyroscope
 
 ```
 
-## Uninstalling the Chart
+### Uninstalling the Chart
 
 To uninstall/delete the my-release deployment:
 
