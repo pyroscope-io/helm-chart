@@ -146,6 +146,28 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# -- Pyroscope server readiness and liveness probe initial delay and timeout
+readinessProbe:
+  enabled: true
+  httpGet:
+    path: /healthz
+    port: 4040
+  initialDelaySeconds: 30
+  periodSeconds: 5
+  timeoutSeconds: 30
+  failureThreshold: 3
+  successThreshold: 1
+livenessProbe:
+  enabled: true
+  httpGet:
+    path: /healthz
+    port: 4040
+  initialDelaySeconds: 30
+  periodSeconds: 15
+  timeoutSeconds: 30
+  failureThreshold: 3
+  successThreshold: 1
+
 # -- CPU/Memory resource requests/limits
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
