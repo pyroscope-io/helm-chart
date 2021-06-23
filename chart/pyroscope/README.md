@@ -50,7 +50,7 @@ helm delete my-release
 | livenessProbe.failureThreshold | int | `3` | Pyroscope server liveness check failure threshold |
 | livenessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server liveness check path |
 | livenessProbe.httpGet.port | int | `4040` | Pyroscope server liveness check port |
-| livenessProbe.initialDelaySeconds | int | `30` | Pyroscope server liveness check intial delay in seconds  |
+| livenessProbe.initialDelaySeconds | int | `30` | Pyroscope server liveness check intial delay in seconds |
 | livenessProbe.periodSeconds | int | `15` | Pyroscope server liveness check frequency in seconds |
 | livenessProbe.successThreshold | int | `1` | Pyroscope server liveness check success threshold |
 | livenessProbe.timeoutSeconds | int | `30` | Pyroscope server liveness check request timeout |
