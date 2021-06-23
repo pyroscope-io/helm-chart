@@ -146,26 +146,42 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-# -- Pyroscope server readiness and liveness probe initial delay and timeout
 readinessProbe:
+  # -- Enable Pyroscope server readiness
   enabled: true
   httpGet:
+    # -- Pyroscope server readiness check path
     path: /healthz
+    # -- Pyroscope server readiness check port
     port: 4040
+  # -- Pyroscope server readiness initial delay in seconds
   initialDelaySeconds: 30
+  # -- Pyroscope server readiness check frequency in seconds
   periodSeconds: 5
+  # -- Pyroscope server readiness check request timeout
   timeoutSeconds: 30
+  # -- Pyroscope server readiness check failure threshold count
   failureThreshold: 3
+  # -- Pyroscope server readiness check success threshold count
   successThreshold: 1
+
 livenessProbe:
+  # -- Enable Pyroscope server liveness
   enabled: true
   httpGet:
+    # -- Pyroscope server liveness check path
     path: /healthz
+    # -- Pyroscope server liveness check port
     port: 4040
+  # -- Pyroscope server liveness check intial delay in seconds 
   initialDelaySeconds: 30
+  # -- Pyroscope server liveness check frequency in seconds
   periodSeconds: 15
+  # -- Pyroscope server liveness check request timeout
   timeoutSeconds: 30
+  # -- Pyroscope server liveness check failure threshold
   failureThreshold: 3
+  # -- Pyroscope server liveness check success threshold
   successThreshold: 1
 
 # -- CPU/Memory resource requests/limits

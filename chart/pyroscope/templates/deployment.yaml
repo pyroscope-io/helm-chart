@@ -62,7 +62,7 @@ spec:
               port: {{ .Values.livenessProbe.httpGet.port }}
           {{- end }}
           resources:
-            {{- toYaml .Values.resources | indent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: config 
               mountPath: /tmp/config.yaml
