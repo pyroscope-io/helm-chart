@@ -3,4 +3,4 @@ name: pyroscope
 description: A Helm chart for Pyroscope
 type: application
 version: 0.2.0
-appVersion: "0.0.32"
+appVersion: "0.0.34"
