@@ -173,7 +173,7 @@ livenessProbe:
     path: /healthz
     # -- Pyroscope server liveness check port
     port: 4040
-  # -- Pyroscope server liveness check intial delay in seconds 
+  # -- Pyroscope server liveness check intial delay in seconds
   initialDelaySeconds: 30
   # -- Pyroscope server liveness check frequency in seconds
   periodSeconds: 15
