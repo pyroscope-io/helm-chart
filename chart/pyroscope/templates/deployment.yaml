@@ -8,6 +8,9 @@ spec:
   selector:
     matchLabels:
       {{- include "pyroscope.selectorLabels" . | nindent 6 }}
+  {{- with .Values.deploymentStrategy }}
+  strategy: {{- toYaml . | trim | nindent 4 }}
+  {{- end }}
   template:
     metadata:
       annotations:
