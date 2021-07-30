@@ -146,6 +146,10 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# -- Deployment strategy
+deploymentStrategy:
+  type: Recreate
+
 readinessProbe:
   # -- Enable Pyroscope server readiness
   enabled: true
