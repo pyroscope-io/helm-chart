@@ -32,6 +32,17 @@ helm delete my-release
 
 ```
 
+## Persistence
+
+If you enable persistence, you should also configure the pod's security context `fsGroup`, to be able to write to the persistent volume. Set it to the group ID of the user running Pyroscope - `101` in the official Pyroscope container image.
+
+```yaml
+persistence:
+  enabled: true
+podSecurityContext:
+  fsGroup: 101
+```
+
 ## Values
 
 | Key | Type | Default | Description |
