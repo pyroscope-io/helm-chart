@@ -97,7 +97,7 @@ podAnnotations: {}
 
 # -- Pod securityContext
 podSecurityContext: {}
-  # fsGroup: 2000
+  # fsGroup: 101
 
 # -- Deployment securityContext
 securityContext: {}
