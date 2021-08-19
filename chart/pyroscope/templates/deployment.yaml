@@ -37,6 +37,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.env }}
+          env:
+          {{- range $k, $v := .Values.env }}
+            - name: {{ $k }}
+              value: {{ $v }}
+          {{- end }}
+          {{- end }}
           ports:
             - name: api
               containerPort: {{ index .Values.pyroscopeConfigs "api-bind-addr" | int | default 4040 }}
@@ -73,6 +80,9 @@ spec:
             - name: storage 
               mountPath: {{ index .Values.pyroscopeConfigs "storage-path" | default "/var/lib/pyroscope" }}
             {{- end }}
+            {{- with .Values.extraVolumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
       volumes:
         - name: config
           configMap:
@@ -81,6 +91,9 @@ spec:
         - name: storage
           persistentVolumeClaim:
             claimName: {{ .Values.persistence.existingClaim | default (include "pyroscope.fullname" .) }}
+        {{- end }}
+        {{- with .Values.extraVolumes }}
+        {{- toYaml . | nindent 8 }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

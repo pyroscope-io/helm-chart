@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.4](https://img.shields.io/badge/Version-0.2.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.34](https://img.shields.io/badge/AppVersion-0.0.34-informational?style=flat-square)
+![Version: 0.2.5](https://img.shields.io/badge/Version-0.2.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.34](https://img.shields.io/badge/AppVersion-0.0.34-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -49,6 +49,9 @@ podSecurityContext:
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for pod assignment |
 | deploymentStrategy | object | `{"type":"Recreate"}` | Deployment strategy |
+| env | object | `{}` | Extra environment variables |
+| extraVolumeMounts | list | `[]` | Additional volume mounts for pyroscope server container |
+| extraVolumes | list | `[]` | Additional volumes |
 | fullnameOverride | string | `""` | Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope" |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |

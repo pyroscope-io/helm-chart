@@ -211,3 +211,12 @@ tolerations: []
 
 # -- Affinity settings for pod assignment
 affinity: {}
+
+# -- Additional volumes
+extraVolumes: []
+
+# -- Additional volume mounts for pyroscope server container
+extraVolumeMounts: []
+
+# -- Extra environment variables
+env: {}
