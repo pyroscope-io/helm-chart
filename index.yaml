@@ -3,6 +3,16 @@ entries:
   pyroscope:
   - apiVersion: v2
     appVersion: 0.0.34
+    created: "2021-08-19T14:24:11.581004426Z"
+    description: A Helm chart for Pyroscope
+    digest: 51f434dd33a53392a7b4ce6c01ef7464bff2b9283abd281404ec41bc66028bf6
+    name: pyroscope
+    type: application
+    urls:
+    - https://github.com/pyroscope-io/helm-chart/releases/download/pyroscope-0.2.5/pyroscope-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: 0.0.34
     created: "2021-08-11T17:55:42.507892192Z"
     description: A Helm chart for Pyroscope
     digest: 70d1ae85c72e6c4d3d7059e8f8539080ca5fabe181fa71c475d62d191fb79faa
@@ -71,4 +81,4 @@ entries:
     urls:
     - https://github.com/pyroscope-io/helm-chart/releases/download/pyroscope-0.1.0/pyroscope-0.1.0.tgz
     version: 0.1.0
-generated: "2021-08-11T17:55:42.507919692Z"
+generated: "2021-08-19T14:24:11.581030026Z"
