@@ -23,6 +23,9 @@ spec:
     {{- end }}
   {{- end }}
   rules:
+    {{- with .Values.ingress.rules }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}
       http:

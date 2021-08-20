@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.5](https://img.shields.io/badge/Version-0.2.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.34](https://img.shields.io/badge/AppVersion-0.0.34-informational?style=flat-square)
+![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.34](https://img.shields.io/badge/AppVersion-0.0.34-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -61,6 +61,7 @@ podSecurityContext:
 | ingress.apiVersion | string | `"networking.k8s.io/v1"` | Ingress API version: networking.k8s.io/v1 (Kubernetes v1.19+) or networking.k8s.io/v1beta1 |
 | ingress.enabled | bool | `false` | Enables Ingress |
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
+| ingress.rules | list | `[]` | Ingress custom rules. Take precedence over chart built-ins. |
 | ingress.tls | list | `[]` | Ingress TLS configuration |
 | livenessProbe.enabled | bool | `true` | Enable Pyroscope server liveness |
 | livenessProbe.failureThreshold | int | `3` | Pyroscope server liveness check failure threshold |
