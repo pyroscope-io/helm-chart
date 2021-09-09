@@ -92,6 +92,11 @@ persistence:
   # selectorLabels: {}
   # existingClaim:
 
+volumePerms:
+  image: busybox:latest
+  user: 100
+  group: 101
+
 # -- Pod annotations
 podAnnotations: {}
 

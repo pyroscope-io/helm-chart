@@ -27,6 +27,20 @@ spec:
       serviceAccountName: {{ include "pyroscope.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+      {{ if .Values.persistence.enabled }}
+      - name: volume-perms
+        image: {{ .Values.volumePerms.image }}
+        command:
+        - sh
+        - -c
+        - chown -R "{{ .Values.volumePerms.user }}:{{ .Values.volumePerms.group }}" {{ index .Values.pyroscopeConfigs "storage-path" | default "/var/lib/pyroscope" }}
+        securityContext:
+          runAsUser: 0
+        volumeMounts:
+          - name: storage
+            mountPath: {{ index .Values.pyroscopeConfigs "storage-path" | default "/var/lib/pyroscope" }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           args:
