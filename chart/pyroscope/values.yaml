@@ -13,7 +13,7 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Tag for pyroscope image to use
-  tag: "0.0.34"
+  tag: "0.0.37"
 
 # -- Image pull secrets
 imagePullSecrets: []
@@ -33,43 +33,8 @@ serviceAccount:
   # -- ServiceAccount annotations
   annotations: {}
 
-# -- Map of pyroscope configs to be used for ref default: https://pyroscope.io/docs/configuration#self-documented-server-config
-pyroscopeConfigs:
-  # disables analytics
-  analytics-opt-out: "false"
-
-  # log level: debug|info|warn|error
-  log-level: "info"
-
-  # log level: debug|info|warn|error
-  badger-log-level: "error"
-
-  # directory where pyroscope stores profiling data
-  storage-path: "/var/lib/pyroscope"
-
-  # port for the HTTP server used for data ingestion and web UI
-  api-bind-addr: ":4040"
-
-  # base URL for when the server is behind a reverse proxy with a different path
-  base-url: ""
-
-  # max number of elements in LRU cache for dimensions
-  cache-dimension-size: "1000"
-
-  # max number of elements in LRU cache for dictionaries
-  cache-dictionary-size: "1000"
-
-  # max number of elements in LRU cache for segments
-  cache-segment-size: "1000"
-
-  # max number of elements in LRU cache for trees
-  cache-tree-size: "10000"
-
-  # max number of nodes used when saving profiles to disk
-  max-nodes-serialization: "2048"
-
-  # max number of nodes used to display data on the frontend
-  max-nodes-render: "2048"
+# -- Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration
+pyroscopeConfigs: {}
 
  ## Enable persistence using Persistent Volume Claims
  ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/

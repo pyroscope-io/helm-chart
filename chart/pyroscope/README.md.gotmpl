@@ -42,7 +42,8 @@ helm delete my-release
 
 ## Persistence
 
-If you enable persistence, you should also configure the pod's security context `fsGroup`, to be able to write to the persistent volume. Set it to the group ID of the user running Pyroscope - `101` in the official Pyroscope container image.
+If you enable persistence, you should also configure the pod's security context `fsGroup`, to be able to write to the persistent volume.
+The official Pyroscope container image runs pyroscope server process with user ID `101`, setting `fsGroup` to this value should be sufficient in most cases:
 
 ```yaml
 persistence:
@@ -50,5 +51,13 @@ persistence:
 podSecurityContext:
   fsGroup: 101
 ```
+
+This includes all processes of the container to the supplemental group and makes kubelet to change the ownership of mounted volumes to this group (recursively; setgid bit is set).
+The only requirement for `fsGroup` is that it should be within the allowed range (e.g. defined by `SecurityContextConstraints`).
+
+## Pyroscope configuration
+
+`pyroscopeConfigs` parameter may include any supported pyroscope server configuration option.
+Please refer to [the documentation](https://pyroscope.io/docs/server-configuration) for details.
 
 {{ template "chart.valuesSection" . }}

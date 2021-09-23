@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.34](https://img.shields.io/badge/AppVersion-0.0.34-informational?style=flat-square)
+![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.37](https://img.shields.io/badge/AppVersion-0.0.37-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -34,7 +34,8 @@ helm delete my-release
 
 ## Persistence
 
-If you enable persistence, you should also configure the pod's security context `fsGroup`, to be able to write to the persistent volume. Set it to the group ID of the user running Pyroscope - `101` in the official Pyroscope container image.
+If you enable persistence, you should also configure the pod's security context `fsGroup`, to be able to write to the persistent volume.
+The official Pyroscope container image runs pyroscope server process with user ID `101`, setting `fsGroup` to this value should be sufficient in most cases:
 
 ```yaml
 persistence:
@@ -42,6 +43,14 @@ persistence:
 podSecurityContext:
   fsGroup: 101
 ```
+
+This includes all processes of the container to the supplemental group and makes kubelet to change the ownership of mounted volumes to this group (recursively; setgid bit is set).
+The only requirement for `fsGroup` is that it should be within the allowed range (e.g. defined by `SecurityContextConstraints`).
+
+## Pyroscope configuration
+
+`pyroscopeConfigs` parameter may include any supported pyroscope server configuration option.
+Please refer to [the documentation](https://pyroscope.io/docs/server-configuration) for details.
 
 ## Values
 
@@ -55,7 +64,7 @@ podSecurityContext:
 | fullnameOverride | string | `""` | Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope" |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |
-| image.tag | string | `"0.0.34"` | Tag for pyroscope image to use |
+| image.tag | string | `"0.0.37"` | Tag for pyroscope image to use |
 | imagePullSecrets | list | `[]` | Image pull secrets |
 | ingress.annotations | object | `{}` | Ingress annotations (values are templated) |
 | ingress.apiVersion | string | `"networking.k8s.io/v1"` | Ingress API version: networking.k8s.io/v1 (Kubernetes v1.19+) or networking.k8s.io/v1beta1 |
@@ -79,7 +88,7 @@ podSecurityContext:
 | persistence.size | string | `"10Gi"` | Size of persistent volume claim |
 | podAnnotations | object | `{}` | Pod annotations |
 | podSecurityContext | object | `{}` | Pod securityContext |
-| pyroscopeConfigs | object | `{"analytics-opt-out":"false","api-bind-addr":":4040","badger-log-level":"error","base-url":"","cache-dictionary-size":"1000","cache-dimension-size":"1000","cache-segment-size":"1000","cache-tree-size":"10000","log-level":"info","max-nodes-render":"2048","max-nodes-serialization":"2048","storage-path":"/var/lib/pyroscope"}` | Map of pyroscope configs to be used for ref default: https://pyroscope.io/docs/configuration#self-documented-server-config |
+| pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
 | readinessProbe.enabled | bool | `true` | Enable Pyroscope server readiness |
 | readinessProbe.failureThreshold | int | `3` | Pyroscope server readiness check failure threshold count |
 | readinessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server readiness check path |
