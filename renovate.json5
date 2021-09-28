@@ -1,0 +1,4 @@
+{
+  // renovate found 2 managers, "github-actions" and "helm-values"
+  "enabledManagers": ["helm-values"]
+}
