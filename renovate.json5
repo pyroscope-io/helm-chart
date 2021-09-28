@@ -6,7 +6,7 @@
   // IMPORTANT! it assumes a single update will happen
   "postUpgradeTasks": {
     "commands": [
-      "./scripts/update-chart.sh {{{newVersion}}}"
+      "bash ./scripts/update-chart.sh {{{newVersion}}}"
     ],
     "fileFilters": ["chart/pyroscope/Chart.yaml", "chart/pyroscope/README.md"],
     "executionMode": "update"
