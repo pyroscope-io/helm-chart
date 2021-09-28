@@ -1,4 +1,14 @@
 {
   // renovate found 2 managers, "github-actions" and "helm-values"
-  "enabledManagers": ["helm-values"]
+  "enabledManagers": ["helm-values"],
+
+  // update Chart.yaml
+  // thanks to https://github.com/renovatebot/renovate/issues/8231#issuecomment-886188267
+  "postUpgradeTasks": {
+    "commands": [
+      "sed -i \"s/^version:.*/version: $(grep '^version:' Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/\" Chart.yaml",
+    ],
+    "fileFilters": ["Chart.yaml"],
+    "executionMode": "branch"
+  }
 }
