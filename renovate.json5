@@ -3,12 +3,12 @@
   "enabledManagers": ["helm-values"],
 
   // update Chart.yaml
-  // thanks to https://github.com/renovatebot/renovate/issues/8231#issuecomment-886188267
+  // IMPORTANT! it assumes a single update will happen
   "postUpgradeTasks": {
     "commands": [
-      "sed -i \"s/^version:.*/version: $(grep '^version:' chart/pyroscope/Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/\" chart/pyroscope/Chart.yaml"
+      "./scripts/update-chart.sh {{{newVersion}}}"
     ],
-    "fileFilters": ["Chart.yaml"],
-    "executionMode": "branch"
+    "fileFilters": ["chart/pyroscope/Chart.yaml", "chart/pyroscope/README.md"],
+    "executionMode": "update"
   }
 }
