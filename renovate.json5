@@ -2,6 +2,14 @@
   // renovate found 2 managers, "github-actions" and "helm-values"
   "enabledManagers": ["helm-values"],
 
+  // do not automerge major releases
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+
   // update Chart.yaml
   // IMPORTANT! it assumes a single update will happen
   "postUpgradeTasks": {
