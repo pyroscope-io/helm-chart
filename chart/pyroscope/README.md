@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.10](https://img.shields.io/badge/Version-0.2.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.0](https://img.shields.io/badge/AppVersion-0.2.0-informational?style=flat-square)
+![Version: 0.2.11](https://img.shields.io/badge/Version-0.2.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.0](https://img.shields.io/badge/AppVersion-0.2.0-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -34,18 +34,12 @@ helm delete my-release
 
 ## Persistence
 
-If you enable persistence, you should also configure the pod's security context `fsGroup`, to be able to write to the persistent volume.
-The official Pyroscope container image runs pyroscope server process with user ID `101`, setting `fsGroup` to this value should be sufficient in most cases:
+The official Pyroscope container image runs pyroscope server process with user ID `101`. The chart uses this value as
+default pod security context `fsGroup`. This includes all processes of the container to the supplemental group and makes
+kubelet to change the ownership of mounted volumes to this group (recursively; setgid bit is set).
 
-```yaml
-persistence:
-  enabled: true
-podSecurityContext:
-  fsGroup: 101
-```
-
-This includes all processes of the container to the supplemental group and makes kubelet to change the ownership of mounted volumes to this group (recursively; setgid bit is set).
-The only requirement for `fsGroup` is that it should be within the allowed range (e.g. defined by `SecurityContextConstraints`).
+If you restrict pod security (for example, using `SecurityContextConstraints` or `PodSecurityPolicy`), you may need to
+override `fsGroup` with a value from the valid range.
 
 ## Pyroscope configuration
 
@@ -87,7 +81,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | persistence.finalizers | list | `["kubernetes.io/pvc-protection"]` | PersistentVolumeClaim finalizers |
 | persistence.size | string | `"10Gi"` | Size of persistent volume claim |
 | podAnnotations | object | `{}` | Pod annotations |
-| podSecurityContext | object | `{}` | Pod securityContext |
+| podSecurityContext | object | `{"fsGroup":101}` | Pod securityContext |
 | pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
 | readinessProbe.enabled | bool | `true` | Enable Pyroscope server readiness |
 | readinessProbe.failureThreshold | int | `3` | Pyroscope server readiness check failure threshold count |
