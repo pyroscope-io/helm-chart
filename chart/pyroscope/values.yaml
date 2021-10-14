@@ -61,8 +61,8 @@ persistence:
 podAnnotations: {}
 
 # -- Pod securityContext
-podSecurityContext: {}
-  # fsGroup: 101
+podSecurityContext:
+  fsGroup: 101
 
 # -- Deployment securityContext
 securityContext: {}
