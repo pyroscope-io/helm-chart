@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.15](https://img.shields.io/badge/Version-0.2.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.4](https://img.shields.io/badge/AppVersion-0.2.4-informational?style=flat-square)
+![Version: 0.2.16](https://img.shields.io/badge/Version-0.2.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.4](https://img.shields.io/badge/AppVersion-0.2.4-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -51,6 +51,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for pod assignment |
+| commonLabels | object | `{}` | Common labels for all resources |
 | deploymentStrategy | object | `{"type":"Recreate"}` | Deployment strategy |
 | env | object | `{}` | Extra environment variables |
 | extraVolumeMounts | list | `[]` | Additional volume mounts for pyroscope server container |
