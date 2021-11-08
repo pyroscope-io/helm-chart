@@ -7,8 +7,8 @@ nameOverride: ""
 # -- Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope"
 fullnameOverride: ""
 
-# -- Common labels for all resources
-commonLabels: {}
+# -- Extra common labels for all resources
+extraLabels: {}
 
 image:
   # -- image to use for deploying

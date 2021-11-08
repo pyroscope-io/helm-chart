@@ -51,9 +51,9 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for pod assignment |
-| commonLabels | object | `{}` | Common labels for all resources |
 | deploymentStrategy | object | `{"type":"Recreate"}` | Deployment strategy |
 | env | object | `{}` | Extra environment variables |
+| extraLabels | object | `{}` | Extra common labels for all resources |
 | extraVolumeMounts | list | `[]` | Additional volume mounts for pyroscope server container |
 | extraVolumes | list | `[]` | Additional volumes |
 | fullnameOverride | string | `""` | Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope" |
