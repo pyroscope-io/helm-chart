@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.16](https://img.shields.io/badge/Version-0.2.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.4](https://img.shields.io/badge/AppVersion-0.2.4-informational?style=flat-square)
+![Version: 0.2.17](https://img.shields.io/badge/Version-0.2.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.5](https://img.shields.io/badge/AppVersion-0.2.5-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -59,7 +59,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | fullnameOverride | string | `""` | Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope" |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |
-| image.tag | string | `"0.2.4"` | Tag for pyroscope image to use |
+| image.tag | string | `"0.2.5"` | Tag for pyroscope image to use |
 | imagePullSecrets | list | `[]` | Image pull secrets |
 | ingress.annotations | object | `{}` | Ingress annotations (values are templated) |
 | ingress.apiVersion | string | `"networking.k8s.io/v1"` | Ingress API version: networking.k8s.io/v1 (Kubernetes v1.19+) or networking.k8s.io/v1beta1 |
