@@ -89,7 +89,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | rbac.clusterRole.name | string | `""` | Cluster role name. If not set, the fully qualified app name is used |
 | rbac.clusterRoleBinding.annotations | object | `{}` | Cluster role binding annotations |
 | rbac.clusterRoleBinding.name | string | `""` | Cluster role binding name. If not set, the fully qualified app name is used |
-| rbac.create | bool | `true` | Creates Pyroscope cluster role and binds service account to it; requires service account to be created |
+| rbac.create | bool | `false` | Creates Pyroscope cluster role and binds service account to it; requires service account to be created |
 | readinessProbe.enabled | bool | `true` | Enable Pyroscope server readiness |
 | readinessProbe.failureThreshold | int | `3` | Pyroscope server readiness check failure threshold count |
 | readinessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server readiness check path |

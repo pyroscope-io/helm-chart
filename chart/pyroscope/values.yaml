@@ -193,7 +193,7 @@ env: {}
 
 rbac:
   # -- Creates Pyroscope cluster role and binds service account to it; requires service account to be created
-  create: true
+  create: false
 
   clusterRole:
     # -- Cluster role name. If not set, the fully qualified app name is used
