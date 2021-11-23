@@ -63,3 +63,17 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create the name of the cluster role to use
+*/}}
+{{- define "pyroscope.clusterRoleName" -}}
+{{- default (include "pyroscope.fullname" .) .Values.rbac.clusterRole.name }}
+{{- end }}
+
+{{/*
+Create the name of the cluster role binding to use
+*/}}
+{{- define "pyroscope.clusterRoleBindingName" -}}
+{{- default (include "pyroscope.fullname" .) .Values.rbac.clusterRoleBinding.name }}
+{{- end }}

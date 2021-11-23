@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.17](https://img.shields.io/badge/Version-0.2.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.5](https://img.shields.io/badge/AppVersion-0.2.5-informational?style=flat-square)
+![Version: 0.2.18](https://img.shields.io/badge/Version-0.2.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.2.5](https://img.shields.io/badge/AppVersion-0.2.5-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -84,6 +84,12 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | podAnnotations | object | `{}` | Pod annotations |
 | podSecurityContext | object | `{"fsGroup":101}` | Pod securityContext |
 | pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
+| rbac.clusterRole.annotations | object | `{}` | Cluster role annotations |
+| rbac.clusterRole.extraRules | list | `[]` | Extra rules for created cluster role |
+| rbac.clusterRole.name | string | `""` | Cluster role name. If not set, the fully qualified app name is used |
+| rbac.clusterRoleBinding.annotations | object | `{}` | Cluster role binding annotations |
+| rbac.clusterRoleBinding.name | string | `""` | Cluster role binding name. If not set, the fully qualified app name is used |
+| rbac.create | bool | `false` | Creates Pyroscope cluster role and binds service account to it; requires service account to be created |
 | readinessProbe.enabled | bool | `true` | Enable Pyroscope server readiness |
 | readinessProbe.failureThreshold | int | `3` | Pyroscope server readiness check failure threshold count |
 | readinessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server readiness check path |

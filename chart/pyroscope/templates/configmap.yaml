@@ -8,4 +8,3 @@ metadata:
 data:  
   config.yaml: |  
   {{- toYaml .Values.pyroscopeConfigs | nindent 4 }}
-

@@ -190,3 +190,21 @@ extraVolumeMounts: []
 
 # -- Extra environment variables
 env: {}
+
+rbac:
+  # -- Creates Pyroscope cluster role and binds service account to it; requires service account to be created
+  create: false
+
+  clusterRole:
+    # -- Cluster role name. If not set, the fully qualified app name is used
+    name: ""
+    # -- Cluster role annotations
+    annotations: {}
+    # -- Extra rules for created cluster role
+    extraRules: []
+
+  clusterRoleBinding:
+    # -- Cluster role binding name. If not set, the fully qualified app name is used
+    name: ""
+    # -- Cluster role binding annotations
+    annotations: {}

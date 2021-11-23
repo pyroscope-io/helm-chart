@@ -1,0 +1,28 @@
+{{- if .Values.rbac.create }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "pyroscope.clusterRoleName" . }}
+  labels:
+    {{- include "pyroscope.labels" . | nindent 4 }}
+  {{- with .Values.rbac.clusterRole.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+rules:
+- apiGroups: ['']
+  resources:
+    - nodes
+    - services
+    - endpoints
+    - pods
+  verbs: ['get', 'list', 'watch']
+- apiGroups:
+    - networking.k8s.io
+  resources:
+    - ingresses
+  verbs: ['get', 'list', 'watch']
+{{- if .Values.rbac.clusterRole.extraRules }}
+{{ toYaml .Values.rbac.clusterRole.extraRules | indent 0 }}
+{{- end }}
+{{- end }}
