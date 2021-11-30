@@ -17,8 +17,8 @@ spec:
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum  }}
         {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
-        {{- end }} 
-      labels: {{- include "pyroscope.selectorLabels" . | nindent 8 }} 
+        {{- end }}
+      labels: {{- include "pyroscope.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -73,11 +73,11 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: config 
+            - name: config
               mountPath: /tmp/config.yaml
               subPath: config.yaml
             {{- if .Values.persistence.enabled }}
-            - name: storage 
+            - name: storage
               mountPath: {{ index .Values.pyroscopeConfigs "storage-path" | default "/var/lib/pyroscope" }}
             {{- end }}
             {{- with .Values.extraVolumeMounts }}
