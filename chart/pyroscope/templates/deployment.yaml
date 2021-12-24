@@ -38,10 +38,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.env }}
-          env:
-          {{- range $k, $v := .Values.env }}
-            - name: {{ $k }}
-              value: {{ $v }}
+          {{- with .Values.env }}
+          env: {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- end }}
           ports:
