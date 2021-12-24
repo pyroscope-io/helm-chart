@@ -39,10 +39,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.env }}
           env:
-            {{- range $name, $item := .Values.env }}
-            - name: {{ $name }}
-              {{- $item | toYaml | nindent 14 }}
-            {{- end }}
+          {{- range $k, $v := .Values.env }}
+            - name: {{ $k }}
+              value: {{ $v }}
+          {{- end }}
           {{- end }}
           ports:
             - name: api
