@@ -5,6 +5,6 @@ metadata:
   name: {{ include "pyroscope.fullname" . }}
   labels:
     {{- include "pyroscope.labels" . | nindent 4 }}
-data:  
-  config.yaml: |  
+data:
+  config.yaml: |
   {{- toYaml .Values.pyroscopeConfigs | nindent 4 }}
