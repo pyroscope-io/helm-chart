@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.26](https://img.shields.io/badge/Version-0.2.26-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.0](https://img.shields.io/badge/AppVersion-0.6.0-informational?style=flat-square)
+![Version: 0.2.27](https://img.shields.io/badge/Version-0.2.27-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.6.0](https://img.shields.io/badge/AppVersion-0.6.0-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -62,7 +62,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | image.tag | string | `"0.6.0"` | Tag for pyroscope image to use |
 | imagePullSecrets | list | `[]` | Image pull secrets |
 | ingress.annotations | object | `{}` | Ingress annotations (values are templated) |
-| ingress.apiVersion | string | `"networking.k8s.io/v1"` | Ingress API version: networking.k8s.io/v1 (Kubernetes v1.19+) or networking.k8s.io/v1beta1 |
+| ingress.className | string | `""` | Ingress class name |
 | ingress.enabled | bool | `false` | Enables Ingress |
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
 | ingress.rules | list | `[]` | Ingress custom rules. Take precedence over chart built-ins. |
