@@ -93,8 +93,8 @@ service:
 ingress:
   # -- Enables Ingress
   enabled: false
-  # -- Ingress API version: networking.k8s.io/v1 (Kubernetes v1.19+) or networking.k8s.io/v1beta1
-  apiVersion: networking.k8s.io/v1
+  # -- Ingress class name
+  className: ""
   # -- Ingress annotations (values are templated)
   annotations: {}
     # kubernetes.io/ingress.class: nginx
