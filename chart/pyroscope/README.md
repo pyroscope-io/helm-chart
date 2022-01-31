@@ -48,62 +48,66 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 
 ## Values
 
-| Key | Type | Default | Description |
-|-----|------|---------|-------------|
-| affinity | object | `{}` | Affinity settings for pod assignment |
-| deploymentStrategy | object | `{"type":"Recreate"}` | Deployment strategy |
-| env | object | `{}` | Extra environment variables |
-| extraLabels | object | `{}` | Extra common labels for all resources |
-| extraVolumeMounts | list | `[]` | Additional volume mounts for pyroscope server container |
-| extraVolumes | list | `[]` | Additional volumes |
-| fullnameOverride | string | `""` | Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope" |
-| image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
-| image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |
-| image.tag | string | `"0.8.0"` | Tag for pyroscope image to use |
-| imagePullSecrets | list | `[]` | Image pull secrets |
-| ingress.annotations | object | `{}` | Ingress annotations (values are templated) |
-| ingress.className | string | `""` | Ingress class name |
-| ingress.enabled | bool | `false` | Enables Ingress |
-| ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
-| ingress.rules | list | `[]` | Ingress custom rules. Take precedence over chart built-ins. |
-| ingress.tls | list | `[]` | Ingress TLS configuration |
-| livenessProbe.enabled | bool | `true` | Enable Pyroscope server liveness |
-| livenessProbe.failureThreshold | int | `3` | Pyroscope server liveness check failure threshold |
-| livenessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server liveness check path |
-| livenessProbe.httpGet.port | int | `4040` | Pyroscope server liveness check port |
-| livenessProbe.initialDelaySeconds | int | `30` | Pyroscope server liveness check intial delay in seconds |
-| livenessProbe.periodSeconds | int | `15` | Pyroscope server liveness check frequency in seconds |
-| livenessProbe.successThreshold | int | `1` | Pyroscope server liveness check success threshold |
-| livenessProbe.timeoutSeconds | int | `30` | Pyroscope server liveness check request timeout |
-| nameOverride | string | `""` | Defaults to .Chart.Name |
-| nodeSelector | object | `{}` | Node labels for pod assignment |
-| persistence.accessModes | list | `["ReadWriteOnce"]` | Persistence access modes |
-| persistence.enabled | bool | `false` | Use persistent volume to store data |
-| persistence.finalizers | list | `["kubernetes.io/pvc-protection"]` | PersistentVolumeClaim finalizers |
-| persistence.size | string | `"10Gi"` | Size of persistent volume claim |
-| podAnnotations | object | `{}` | Pod annotations |
-| podSecurityContext | object | `{"fsGroup":101}` | Pod securityContext |
-| pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
-| rbac.clusterRole.annotations | object | `{}` | Cluster role annotations |
-| rbac.clusterRole.extraRules | list | `[]` | Extra rules for created cluster role |
-| rbac.clusterRole.name | string | `""` | Cluster role name. If not set, the fully qualified app name is used |
-| rbac.clusterRoleBinding.annotations | object | `{}` | Cluster role binding annotations |
-| rbac.clusterRoleBinding.name | string | `""` | Cluster role binding name. If not set, the fully qualified app name is used |
-| rbac.create | bool | `false` | Creates Pyroscope cluster role and binds service account to it; requires service account to be created |
-| readinessProbe.enabled | bool | `true` | Enable Pyroscope server readiness |
-| readinessProbe.failureThreshold | int | `3` | Pyroscope server readiness check failure threshold count |
-| readinessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server readiness check path |
-| readinessProbe.httpGet.port | int | `4040` | Pyroscope server readiness check port |
-| readinessProbe.initialDelaySeconds | int | `30` | Pyroscope server readiness initial delay in seconds |
-| readinessProbe.periodSeconds | int | `5` | Pyroscope server readiness check frequency in seconds |
-| readinessProbe.successThreshold | int | `1` | Pyroscope server readiness check success threshold count |
-| readinessProbe.timeoutSeconds | int | `30` | Pyroscope server readiness check request timeout |
-| resources | object | `{}` | CPU/Memory resource requests/limits |
-| securityContext | object | `{}` | Deployment securityContext |
-| service.annotations | object | `{}` | Service annotations |
-| service.port | int | `4040` | Kubernetes port where service is exposed |
-| service.type | string | `"ClusterIP"` | Specify a service type |
-| serviceAccount.annotations | object | `{}` | ServiceAccount annotations |
-| serviceAccount.create | bool | `true` | Create service account |
-| serviceAccount.name | string | `""` | Service account name to use, when empty will be set to created account if serviceAccount.create is set else to default |
-| tolerations | list | `[]` | Toleration labels for pod assignment |
+| Key                                 | Type   | Default                 | Description                                                 |
+|-------------------------------------|--------|------------------------------------|--------------------------------------------------|
+| affinity                            | object | `{}`                    | Affinity settings for pod assignment                        |
+| deploymentStrategy                  | object | `{"type":"Recreate"}`   | Deployment strategy                                         |
+| env                                 | object | `{}`                    | Extra environment variables                                 |
+| extraLabels                         | object | `{}`                    | Extra common labels for all resources                       |
+| extraVolumeMounts                   | list   | `[]`                    | Additional volume mounts for pyroscope server container     |
+| extraVolumes                        | list   | `[]`                    | Additional volumes                                          |
+| fullnameOverride                    | string | `""`                    | Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope" |
+| image.pullPolicy                    | string | `"IfNotPresent"`        | Image pull policy                                           |
+| image.repository                    | string | `"pyroscope/pyroscope"` | image to use for deploying                                  |
+| image.tag                           | string | `"0.8.0"`               | Tag for pyroscope image to use                              |
+| imagePullSecrets                    | list   | `[]`                    | Image pull secrets                                          |
+| ingress.annotations                 | object | `{}`                    | Ingress annotations (values are templated)                  |
+| ingress.className                   | string | `""`                    | Ingress class name                                          |
+| ingress.enabled                     | bool   | `false`                 | Enables Ingress                                             |
+| ingress.hosts                       | list   | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
+| ingress.rules                       | list   | `[]`                    | Ingress custom rules. Take precedence over chart built-ins. |
+| ingress.tls                         | list   | `[]`                    | Ingress TLS configuration                                   |
+| livenessProbe.enabled               | bool   | `true`                  | Enable Pyroscope server liveness                            |
+| livenessProbe.failureThreshold      | int    | `3`                     | Pyroscope server liveness check failure threshold           |
+| livenessProbe.httpGet.path          | string | `"/healthz"`            | Pyroscope server liveness check path                        |
+| livenessProbe.httpGet.port          | int    | `4040`                  | Pyroscope server liveness check port                        |
+| livenessProbe.initialDelaySeconds   | int    | `30`                    | Pyroscope server liveness check intial delay in seconds     |
+| livenessProbe.periodSeconds         | int    | `15`                    | Pyroscope server liveness check frequency in seconds        |
+| livenessProbe.successThreshold      | int    | `1`                     | Pyroscope server liveness check success threshold           |
+| livenessProbe.timeoutSeconds        | int    | `30`                    | Pyroscope server liveness check request timeout             |
+| nameOverride                        | string | `""`                    | Defaults to .Chart.Name                                     |
+| nodeSelector                        | object | `{}`                    | Node labels for pod assignment                              |
+| persistence.accessModes             | list   | `["ReadWriteOnce"]`     | Persistence access modes                                    |
+| persistence.enabled                 | bool   | `false`                 | Use persistent volume to store data                         |
+| persistence.finalizers              | list   | `["kubernetes.io/pvc-protection"]` | PersistentVolumeClaim finalizers                 |
+| persistence.size                    | string | `"10Gi"`                | Size of persistent volume claim                             |
+| podAnnotations                      | object | `{}`                    | Pod annotations                                             |
+| podSecurityContext                  | object | `{"fsGroup":101}`       | Pod securityContext                                         |
+| pyroscopeConfigs                    | object | `{}`                    | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
+| rbac.clusterRole.annotations        | object | `{}`                    | Cluster role annotations                                    |
+| rbac.clusterRole.extraRules         | list   | `[]`                    | Extra rules for created cluster role                        |
+| rbac.clusterRole.name               | string | `""`                    | Cluster role name. If not set, the fully qualified app name is used             |
+| rbac.clusterRoleBinding.annotations | object | `{}`                    | Cluster role binding annotations                                                |
+| rbac.clusterRoleBinding.name        | string | `""`                    | Cluster role binding name. If not set, the fully qualified app name is used     |
+| rbac.create                         | bool   | `false`                 | Creates Pyroscope cluster role and binds service account to it; requires service account to be created |
+| readinessProbe.enabled              | bool   | `true`                  | Enable Pyroscope server readiness                           |
+| readinessProbe.failureThreshold     | int    | `3`                     | Pyroscope server readiness check failure threshold count    |
+| readinessProbe.httpGet.path         | string | `"/healthz"`            | Pyroscope server readiness check path                       |
+| readinessProbe.httpGet.port         | int    | `4040`                  | Pyroscope server readiness check port                       |
+| readinessProbe.initialDelaySeconds  | int    | `30`                    | Pyroscope server readiness initial delay in seconds         |
+| readinessProbe.periodSeconds        | int    | `5`                     | Pyroscope server readiness check frequency in seconds       |
+| readinessProbe.successThreshold     | int    | `1`                     | Pyroscope server readiness check success threshold count    |
+| readinessProbe.timeoutSeconds       | int    | `30`                    | Pyroscope server readiness check request timeout            |
+| resources                           | object | `{}`                    | CPU/Memory resource requests/limits                         |
+| securityContext                     | object | `{}`                    | Deployment securityContext                                  |
+| service.annotations                 | object | `{}`                    | Service annotations                                         |
+| service.port                        | int    | `4040`                  | Kubernetes port where service is exposed                    |
+| service.type                        | string | `"ClusterIP"`           | Specify a service type                                      |
+| serviceAccount.annotations          | object | `{}`                    | ServiceAccount annotations                                  |
+| serviceAccount.create               | bool   | `true`                  | Create service account                                      |
+| serviceAccount.name                 | string | `""`                    | Service account name to use, when empty will be set to created account if serviceAccount.create is set |
+| tolerations                         | list   | `[]`                    | Toleration labels for pod assignment                        |
+
+
+
+

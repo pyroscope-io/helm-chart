@@ -13,7 +13,7 @@ sed -i "s/^appVersion:.*/appVersion: \"$newDockerVersion\"/" chart/pyroscope/Cha
 # TODO
 # only run if it's on linux
 if [ -f /etc/os-release ]; then
-  # create a temporary director
+  # create a temporary directory
   # and delete in the end (even though it makes no difference since renovate runs in a container)
   tempDir=$(mktemp -d)
   trap "rm -rf $tempDir" EXIT
