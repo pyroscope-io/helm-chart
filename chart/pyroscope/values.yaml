@@ -16,7 +16,7 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Tag for pyroscope image to use
-  tag: "0.12.0"
+  tag: "0.13.0"
 
 # -- Image pull secrets
 imagePullSecrets: []
