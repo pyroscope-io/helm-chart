@@ -1,0 +1,6 @@
+apiVersion: v2
+name: pyroscope-ebpf
+description: A Helm chart for Pyroscope eBPF
+type: application
+version: 0.1.0
+appVersion: "0.26.0"

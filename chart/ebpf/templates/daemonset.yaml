@@ -1,0 +1,42 @@
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "pyroscope-ebpf.fullname" . }}
+  labels:
+    {{- include "pyroscope-ebpf.labels" . | nindent 4 }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "pyroscope-ebpf.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "pyroscope-ebpf.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "pyroscope-ebpf.serviceAccountName" . }}
+      containers:
+        - name: pyroscope-agent
+          args:
+{{ toYaml .Values.args | indent 10 }}
+          env:
+          - name: PYROSCOPE_KUBERNETES_NODE
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          {{- if .Values.envFromSecret }}
+          - secretRef:
+              name: {{ .Values.envFromSecret }}
+          {{- end }}
+          securityContext:
+            privileged: true
+            runAsGroup: 0
+            runAsUser: 0
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          resources:
+            {}
+      hostPID: true
+
