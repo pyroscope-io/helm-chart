@@ -20,4 +20,4 @@ args:
   - "--server-address"
   - "http://pyroscope-server:4040"
 
-#envFromSecret: ""
+# envFromSecret: ""
