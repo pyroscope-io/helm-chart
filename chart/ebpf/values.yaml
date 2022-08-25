@@ -1,18 +1,29 @@
 image:
+  # -- image to use for deploying
   repository: pyroscope/pyroscope
-  tag: 0.26.0
+  # -- Image pull policy
   pullPolicy: IfNotPresent
+  # -- Tag for pyroscope image to use
+  tag: "0.27.0"
 
 
 serviceAccount:
   # Specifies whether a service account should be created
+
+  # -- Create service account
   create: true
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+# The name of the service account to use.
+# If not set and create is true, a name is generated using the fullname template
+
+  # -- Service account name to use, when empty will be set to created account if serviceAccount.create is set else to default
   name: ""
+  # Annotations to add to the service account
+
+  # -- ServiceAccount annotations
+  annotations: {}
 
 
+# -- Arguments to be passed to the pyroscope binary
 args:
   - "ebpf"
   - "--application-name"
@@ -20,4 +31,5 @@ args:
   - "--server-address"
   - "http://pyroscope-server:4040"
 
+# -- Name of the secret that will load environment vars from
 # envFromSecret: ""

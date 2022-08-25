@@ -1,0 +1,65 @@
+{{ template "chart.header" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+
+## Get the Repo of Pyrscope
+
+```console
+
+helm repo add pyroscope-io https://pyroscope-io.github.io/helm-chart
+
+```
+
+
+## Installing the Chart
+
+
+To install the chart with the release name `my-release`:
+
+
+```console
+
+helm install my-release pyroscope-io/pyroscope-ebpf
+
+```
+
+## Uninstalling the Chart
+
+To uninstall/delete the my-release deployment:
+
+```console
+
+helm delete my-release
+
+```
+
+## Configuration
+
+{{ template "chart.valuesSection" . }}
+
+## Authentication
+
+If you are pushing data to a pyroscope server with authentication enabled,
+we recommend using the property `envFromSecret` to load `PYROSCOPE_AUTH_TOKEN` as an environment variable.
+
+For example:
+```yaml
+envFromSecret: "my-secret"
+```
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+type: Opaque
+data:
+  PYROSCOPE_AUTH_TOKEN: MY_SECRET_IN_BASE_64_FORM
+```
