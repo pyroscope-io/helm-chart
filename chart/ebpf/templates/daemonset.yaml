@@ -26,6 +26,7 @@ spec:
               fieldRef:
                 fieldPath: spec.nodeName
           {{- if .Values.envFromSecret }}
+          envFrom:
           - secretRef:
               name: {{ .Values.envFromSecret }}
           {{- end }}
