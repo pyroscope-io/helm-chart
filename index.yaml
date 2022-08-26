@@ -631,4 +631,15 @@ entries:
     urls:
     - https://github.com/pyroscope-io/helm-chart/releases/download/pyroscope-0.1.0/pyroscope-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-25T01:11:30.128708597Z"
+  pyroscope-ebpf:
+  - apiVersion: v2
+    appVersion: 0.27.0
+    created: "2022-08-26T13:50:44.316350792Z"
+    description: A Helm chart for Pyroscope eBPF
+    digest: 9785d9077ac74cba3d4cb3690e5c616d179df609a1e8480aca582057357d7241
+    name: pyroscope-ebpf
+    type: application
+    urls:
+    - https://github.com/pyroscope-io/helm-chart/releases/download/pyroscope-ebpf-0.1.0/pyroscope-ebpf-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-08-26T13:50:44.31676639Z"
