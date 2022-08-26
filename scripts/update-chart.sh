@@ -6,9 +6,15 @@ newDockerVersion="$1"
 
 # inspired by https://github.com/renovatebot/renovate/issues/8231#issuecomment-886188267
 # if we manually surround the version by quotes it will break!!
+# UPDATE pyroscope chart
 sed -i "s/^version:.*/version: $(grep '^version:' chart/pyroscope/Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/" chart/pyroscope/Chart.yaml
 
 sed -i "s/^appVersion:.*/appVersion: \"$newDockerVersion\"/" chart/pyroscope/Chart.yaml
+
+# UPDATE pyroscope-ebpf chart
+sed -i "s/^version:.*/version: $(grep '^version:' chart/pyroscope-ebpf/Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/" chart/pyroscope-ebpf/Chart.yaml
+
+sed -i "s/^appVersion:.*/appVersion: \"$newDockerVersion\"/" chart/pyroscope-ebpf/Chart.yaml
 
 # TODO
 # only run if it's on linux

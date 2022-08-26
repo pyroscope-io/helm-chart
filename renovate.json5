@@ -10,13 +10,16 @@
     }
   ],
 
-  // update Chart.yaml
-  // IMPORTANT! it assumes a single update will happen
   "postUpgradeTasks": {
     "commands": [
       "bash ./scripts/update-chart.sh {{{newVersion}}}"
     ],
-    "fileFilters": ["chart/pyroscope/Chart.yaml", "chart/pyroscope/README.md"],
+    "fileFilters": [
+      "chart/pyroscope/Chart.yaml",
+      "chart/pyroscope/README.md",
+      "chart/pyroscope-ebpf/Chart.yaml",
+      "chart/pyroscope-ebpf/README.md"
+    ],
     "executionMode": "update"
   }
 }
