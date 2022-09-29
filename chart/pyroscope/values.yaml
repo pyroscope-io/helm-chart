@@ -89,6 +89,8 @@ service:
   annotations: {}
   # nodePort:
   # loadBalancerIP:
+  # loadBalancerSourceRanges:
+  #   - 10.10.10.0/24
 
 ingress:
   # -- Enables Ingress
