@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   pyroscope:
   - apiVersion: v2
+    appVersion: 0.30.0
+    created: "2022-10-04T20:11:38.795318725Z"
+    description: A Helm chart for Pyroscope
+    digest: d2eaeddaa6a6f28a8829734dd640df33a34f857034b281db03a6f6d863a3e2ea
+    name: pyroscope
+    type: application
+    urls:
+    - https://github.com/pyroscope-io/helm-chart/releases/download/pyroscope-0.2.68/pyroscope-0.2.68.tgz
+    version: 0.2.68
+  - apiVersion: v2
     appVersion: 0.29.0
     created: "2022-09-14T20:11:26.43809672Z"
     description: A Helm chart for Pyroscope
@@ -663,6 +673,16 @@ entries:
     version: 0.1.0
   pyroscope-ebpf:
   - apiVersion: v2
+    appVersion: 0.30.0
+    created: "2022-10-04T20:11:39.061637936Z"
+    description: A Helm chart for Pyroscope eBPF
+    digest: 26ceb7cb2130fa5f1e20123b6720e2b21bb8ebba190bf996e421b976545aa8f7
+    name: pyroscope-ebpf
+    type: application
+    urls:
+    - https://github.com/pyroscope-io/helm-chart/releases/download/pyroscope-ebpf-0.1.8/pyroscope-ebpf-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
     appVersion: 0.29.0
     created: "2022-09-14T20:11:26.617306041Z"
     description: A Helm chart for Pyroscope eBPF
@@ -702,4 +722,4 @@ entries:
     urls:
     - https://github.com/pyroscope-io/helm-chart/releases/download/pyroscope-ebpf-0.1.0/pyroscope-ebpf-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-14T20:11:26.618183286Z"
+generated: "2022-10-04T20:11:39.062589335Z"
