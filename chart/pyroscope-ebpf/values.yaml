@@ -4,7 +4,7 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Tag for pyroscope image to use
-  tag: "0.29.0"
+  tag: "0.30.0"
 
 
 serviceAccount:
