@@ -67,6 +67,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
 | ingress.rules | list | `[]` | Ingress custom rules. Take precedence over chart built-ins. |
 | ingress.tls | list | `[]` | Ingress TLS configuration |
+| initContainers | list | `[]` |  |
 | livenessProbe.enabled | bool | `true` | Enable Pyroscope server liveness |
 | livenessProbe.failureThreshold | int | `3` | Pyroscope server liveness check failure threshold |
 | livenessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server liveness check path |
@@ -83,7 +84,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | persistence.size | string | `"10Gi"` | Size of persistent volume claim |
 | podAnnotations | object | `{}` | Pod annotations |
 | podSecurityContext | object | `{"fsGroup":101}` | Pod securityContext |
-| pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
+| pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to <https://pyroscope.io/docs/server-configuration> |
 | rbac.clusterRole.annotations | object | `{}` | Cluster role annotations |
 | rbac.clusterRole.extraRules | list | `[]` | Extra rules for created cluster role |
 | rbac.clusterRole.name | string | `""` | Cluster role name. If not set, the fully qualified app name is used |
