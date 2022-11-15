@@ -191,6 +191,8 @@ extraVolumeMounts: []
 # -- Extra environment variables
 env: {}
 
+envFrom: {}
+
 rbac:
   # -- Creates Pyroscope cluster role and binds service account to it; requires service account to be created
   create: false

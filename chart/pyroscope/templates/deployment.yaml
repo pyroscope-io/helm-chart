@@ -37,11 +37,33 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- $fullName := include "pyroscope.fullname" . -}}
           {{- if .Values.env }}
           env:
           {{- range $k, $v := .Values.env }}
             - name: {{ $k }}
               value: {{ $v }}
+          {{- end }}
+          {{- if .Values.envFrom }}
+          {{- range $key, $val := .Values.envFrom }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}-env-secret
+                  key: {{ $val }}
+          {{- end }}
+          {{- end }}
+          {{- end }}
+          {{- if empty .Values.env }}
+          {{- if .Values.envFrom }}
+          env:
+          {{- range $key, $val := .Values.envFrom }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $fullName }}-env-secret
+                  key: {{ $val }}
+          {{- end }}
           {{- end }}
           {{- end }}
           ports:
