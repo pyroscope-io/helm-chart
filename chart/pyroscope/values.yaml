@@ -122,6 +122,18 @@ ingress:
 deploymentStrategy:
   type: Recreate
 
+initContainers: []
+# - name: volume-mount-fix
+#   imagePullPolicy: Always
+#   command:
+#   image: busybox
+#   - sh
+#   - -c
+#   - chmod 777 /var/lib/pyroscope && chown -R 101:101 /var/lib/pyroscope
+#   volumeMounts:
+#   - name: storage
+#     mountPath: /var/lib/pyroscope
+
 readinessProbe:
   # -- Enable Pyroscope server readiness
   enabled: true

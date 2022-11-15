@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.74](https://img.shields.io/badge/Version-0.2.74-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.33.0](https://img.shields.io/badge/AppVersion-0.33.0-informational?style=flat-square)
+![Version: 0.2.75](https://img.shields.io/badge/Version-0.2.75-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.33.0](https://img.shields.io/badge/AppVersion-0.33.0-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -67,6 +67,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
 | ingress.rules | list | `[]` | Ingress custom rules. Take precedence over chart built-ins. |
 | ingress.tls | list | `[]` | Ingress TLS configuration |
+| initContainers | list | `[]` |  |
 | livenessProbe.enabled | bool | `true` | Enable Pyroscope server liveness |
 | livenessProbe.failureThreshold | int | `3` | Pyroscope server liveness check failure threshold |
 | livenessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server liveness check path |
