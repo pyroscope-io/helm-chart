@@ -84,7 +84,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | persistence.size | string | `"10Gi"` | Size of persistent volume claim |
 | podAnnotations | object | `{}` | Pod annotations |
 | podSecurityContext | object | `{"fsGroup":101}` | Pod securityContext |
-| pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to <https://pyroscope.io/docs/server-configuration> |
+| pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
 | rbac.clusterRole.annotations | object | `{}` | Cluster role annotations |
 | rbac.clusterRole.extraRules | list | `[]` | Extra rules for created cluster role |
 | rbac.clusterRole.name | string | `""` | Cluster role name. If not set, the fully qualified app name is used |
