@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.66](https://img.shields.io/badge/Version-0.2.66-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.29.0](https://img.shields.io/badge/AppVersion-0.29.0-informational?style=flat-square)
+![Version: 0.2.79](https://img.shields.io/badge/Version-0.2.79-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.34.1](https://img.shields.io/badge/AppVersion-0.34.1-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -59,7 +59,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | fullnameOverride | string | `""` | Defaults to .Release.Name-.Chart.Name unless .Release.Name contains "pyroscope" |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |
-| image.tag | string | `"0.29.0"` | Tag for pyroscope image to use |
+| image.tag | string | `"0.34.1"` | Tag for pyroscope image to use |
 | imagePullSecrets | list | `[]` | Image pull secrets |
 | ingress.annotations | object | `{}` | Ingress annotations (values are templated) |
 | ingress.className | string | `""` | Ingress class name |
@@ -67,6 +67,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"Prefix"}]}]` | Ingress accepted hostnames |
 | ingress.rules | list | `[]` | Ingress custom rules. Take precedence over chart built-ins. |
 | ingress.tls | list | `[]` | Ingress TLS configuration |
+| initContainers | list | `[]` |  |
 | livenessProbe.enabled | bool | `true` | Enable Pyroscope server liveness |
 | livenessProbe.failureThreshold | int | `3` | Pyroscope server liveness check failure threshold |
 | livenessProbe.httpGet.path | string | `"/healthz"` | Pyroscope server liveness check path |

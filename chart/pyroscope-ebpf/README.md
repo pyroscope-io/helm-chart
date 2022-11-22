@@ -1,6 +1,6 @@
 # pyroscope-ebpf
 
-![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.29.0](https://img.shields.io/badge/AppVersion-0.29.0-informational?style=flat-square)
+![Version: 0.1.18](https://img.shields.io/badge/Version-0.1.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.34.1](https://img.shields.io/badge/AppVersion-0.34.1-informational?style=flat-square)
 
 A Helm chart for Pyroscope eBPF
 
@@ -41,7 +41,7 @@ helm delete my-release
 | args | list | `["ebpf","--application-name","k8s.ebpf","--server-address","http://pyroscope-server:4040"]` | Arguments to be passed to the pyroscope binary |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |
-| image.tag | string | `"0.29.0"` | Tag for pyroscope image to use |
+| image.tag | string | `"0.34.1"` | Tag for pyroscope image to use |
 | serviceAccount.annotations | object | `{}` | ServiceAccount annotations |
 | serviceAccount.create | bool | `true` | Create service account |
 | serviceAccount.name | string | `""` | Service account name to use, when empty will be set to created account if serviceAccount.create is set else to default |
