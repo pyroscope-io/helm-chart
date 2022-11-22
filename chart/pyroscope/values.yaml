@@ -120,7 +120,7 @@ ingress:
 
 # -- Deployment strategy
 deploymentStrategy:
-  type: RollingUpdate
+  type: Recreate
 
 initContainers: []
 # - name: volume-mount-fix
