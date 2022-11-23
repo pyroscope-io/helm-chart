@@ -23,7 +23,7 @@ To install the chart with the release name `my-release`:
 
 ```console
 
-helm install my-release pyroscope-io/pyroscope
+helm install my-release pyroscope-io/pyroscope -n pyroscope --create-namespace
 
 ```
 
@@ -38,14 +38,17 @@ helm delete my-release
 ```
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
+
 Chart documentation is available in [chart directory](https://github.com/pyroscope-io/helm-chart/blob/main/chart/pyroscope/README.md).
 
 ## Contributing
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
+
 We'd love to have you contribute! Please refer to our [contribution guidelines](https://github.com/pyroscope-io/helm-chart/blob/main/CONTRIBUTING.md) for details.
 
 ## License
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
+
 [Apache 2.0 License](https://github.com/pyroscope-io/helm-chart/blob/main/LICENSE).
