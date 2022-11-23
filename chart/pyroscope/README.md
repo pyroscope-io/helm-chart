@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.79](https://img.shields.io/badge/Version-0.2.79-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.34.1](https://img.shields.io/badge/AppVersion-0.34.1-informational?style=flat-square)
+![Version: 0.2.80](https://img.shields.io/badge/Version-0.2.80-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.34.1](https://img.shields.io/badge/AppVersion-0.34.1-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
