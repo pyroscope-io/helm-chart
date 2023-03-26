@@ -89,8 +89,8 @@ service:
   annotations: {}
   # nodePort:
   # loadBalancerIP:
-  # loadBalancerSourceRanges:
-  #   - 10.10.10.0/24
+  # -- If specified and supported by the platform, this will restrict traffic through the load-balancer to the specified client IPs.
+  loadBalancerSourceRanges: []
 
 ingress:
   # -- Enables Ingress
