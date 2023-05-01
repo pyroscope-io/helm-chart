@@ -1,6 +1,6 @@
 # pyroscope-ebpf
 
-![Version: 0.1.31](https://img.shields.io/badge/Version-0.1.31-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.37.2](https://img.shields.io/badge/AppVersion-0.37.2-informational?style=flat-square)
+![Version: 0.1.32](https://img.shields.io/badge/Version-0.1.32-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.37.2](https://img.shields.io/badge/AppVersion-0.37.2-informational?style=flat-square)
 
 A Helm chart for Pyroscope eBPF
 
@@ -42,6 +42,7 @@ helm delete my-release
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |
 | image.tag | string | `"0.37.2"` | Tag for pyroscope image to use |
+| priorityClassName | string | `""` | Set priorityClassName for pyroscope-ebpf on DaemonSet to have a higher priority over other pods |
 | serviceAccount.annotations | object | `{}` | ServiceAccount annotations |
 | serviceAccount.create | bool | `true` | Create service account |
 | serviceAccount.name | string | `""` | Service account name to use, when empty will be set to created account if serviceAccount.create is set else to default |
