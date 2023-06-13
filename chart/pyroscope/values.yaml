@@ -220,3 +220,6 @@ rbac:
     name: ""
     # -- Cluster role binding annotations
     annotations: {}
+
+# -- Additional labels to add on pods
+podLabels: {}

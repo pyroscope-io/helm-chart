@@ -31,5 +31,8 @@ args:
   - "--server-address"
   - "http://pyroscope-server:4040"
 
+# -- Additional labels to add on pods
+podLabels: {}
+
 # -- Name of the secret that will load environment vars from
 # envFromSecret: ""

@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.92](https://img.shields.io/badge/Version-0.2.92-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.37.2](https://img.shields.io/badge/AppVersion-0.37.2-informational?style=flat-square)
+![Version: 0.2.93](https://img.shields.io/badge/Version-0.2.93-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.37.2](https://img.shields.io/badge/AppVersion-0.37.2-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -83,6 +83,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | persistence.finalizers | list | `["kubernetes.io/pvc-protection"]` | PersistentVolumeClaim finalizers |
 | persistence.size | string | `"10Gi"` | Size of persistent volume claim |
 | podAnnotations | object | `{}` | Pod annotations |
+| podLabels | object | `{}` | Additional labels to add on pods |
 | podSecurityContext | object | `{"fsGroup":101}` | Pod securityContext |
 | pyroscopeConfigs | object | `{}` | Pyroscope server configuration. Please refer to https://pyroscope.io/docs/server-configuration |
 | rbac.clusterRole.annotations | object | `{}` | Cluster role annotations |
