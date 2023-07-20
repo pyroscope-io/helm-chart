@@ -203,6 +203,15 @@ extraVolumeMounts: []
 # -- Extra environment variables
 env: {}
 
+# -- Extra environment variables in Kubernetes format, use it when you need to use `valueFrom`
+envVars: []
+# It
+# - name: PYROSCOPE_AUTH_GOOGLE_CLIENT_ID
+#   valueFrom:
+#     secretKeyRef:
+#       name: pyroscope-auth-google
+#       key: client-id
+
 rbac:
   # -- Creates Pyroscope cluster role and binds service account to it; requires service account to be created
   create: false

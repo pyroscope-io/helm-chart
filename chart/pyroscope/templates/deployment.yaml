@@ -41,11 +41,14 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.env }}
+          {{- if or .Values.env .Values.envVars }}
           env:
           {{- range $k, $v := .Values.env }}
             - name: {{ $k }}
               value: {{ $v }}
+          {{- end }}
+          {{- with .Values.envVars }}
+          {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- end }}
           ports:
