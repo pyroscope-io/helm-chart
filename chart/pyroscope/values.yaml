@@ -205,7 +205,6 @@ env: {}
 
 # -- Extra environment variables in Kubernetes format, use it when you need to use `valueFrom`
 envVars: []
-# It
 # - name: PYROSCOPE_AUTH_GOOGLE_CLIENT_ID
 #   valueFrom:
 #     secretKeyRef:
