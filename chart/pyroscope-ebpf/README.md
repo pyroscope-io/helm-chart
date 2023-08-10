@@ -42,7 +42,7 @@ helm delete my-release
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"pyroscope/pyroscope"` | image to use for deploying |
 | image.tag | string | `"0.37.2"` | Tag for pyroscope image to use |
-| priorityClassName | string | `""` | PriorityClassName to schedule pod with higher priority |
+| priorityClassName | string | `"system-node-critical"` | PriorityClassName to schedule pod with higher priority |
 | serviceAccount.annotations | object | `{}` | ServiceAccount annotations |
 | serviceAccount.create | bool | `true` | Create service account |
 | serviceAccount.name | string | `""` | Service account name to use, when empty will be set to created account if serviceAccount.create is set else to default |
