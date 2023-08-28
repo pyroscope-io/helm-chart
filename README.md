@@ -7,6 +7,6 @@ In March 2023, Grafana Labs acquired Pyroscope, the company behind the eponymous
 This repository is archived and will not be updated.
 
 Please visit the Grafana Helm Repository to get the latest version of Pyroscope Helm Chart:
-* [Grafana Community Kubernetes Helm Charts] https://github.com/grafana/helm-charts
+* [Grafana Community Kubernetes Helm Charts](https://github.com/grafana/helm-charts)
 * [Helm Chart Documentation](https://grafana.com/docs/pyroscope/next/deploy-kubernetes/)
 * [values.yaml Reference](https://github.com/grafana/pyroscope/tree/next/operations/pyroscope/helm/pyroscope)
