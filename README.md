@@ -8,5 +8,7 @@ This repository is archived and will not be updated.
 
 Please visit the Grafana Helm Repository to get the latest version of Pyroscope Helm Chart:
 * [Grafana Community Kubernetes Helm Charts](https://github.com/grafana/helm-charts)
-* [Helm Chart Documentation](https://grafana.com/docs/pyroscope/next/deploy-kubernetes/helm/)
+* [Helm Chart Documentation](https://grafana.com/docs/pyroscope/latest/deploy-kubernetes/helm/)
 * [values.yaml Reference](https://github.com/grafana/pyroscope/tree/next/operations/pyroscope/helm/pyroscope)
+* [Upgrade Guide](https://grafana.com/docs/pyroscope/latest/upgrade-guide/)
+
