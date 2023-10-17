@@ -1,6 +1,6 @@
 # pyroscope
 
-![Version: 0.2.92](https://img.shields.io/badge/Version-0.2.92-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.37.2](https://img.shields.io/badge/AppVersion-0.37.2-informational?style=flat-square)
+![Version: 0.2.93](https://img.shields.io/badge/Version-0.2.93-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.37.2](https://img.shields.io/badge/AppVersion-0.37.2-informational?style=flat-square)
 
 A Helm chart for Pyroscope
 
@@ -53,6 +53,7 @@ Please refer to [the documentation](https://pyroscope.io/docs/server-configurati
 | affinity | object | `{}` | Affinity settings for pod assignment |
 | deploymentStrategy | object | `{"type":"Recreate"}` | Deployment strategy |
 | env | object | `{}` | Extra environment variables |
+| envVars | list | `[]` | Extra environment variables in Kubernetes format, use it when you need to use `valueFrom` |
 | extraLabels | object | `{}` | Extra common labels for all resources |
 | extraVolumeMounts | list | `[]` | Additional volume mounts for pyroscope server container |
 | extraVolumes | list | `[]` | Additional volumes |
