@@ -22,6 +22,8 @@ serviceAccount:
   # -- ServiceAccount annotations
   annotations: {}
 
+# -- PriorityClassName to schedule pod with higher priority
+priorityClassName: "system-node-critical"
 
 # -- Arguments to be passed to the pyroscope binary
 args:
