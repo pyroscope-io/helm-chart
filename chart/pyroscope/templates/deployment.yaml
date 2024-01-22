@@ -50,7 +50,7 @@ spec:
           {{- end }}
           ports:
             - name: api
-              containerPort: {{ index .Values.pyroscopeConfigs "api-bind-addr" | int | default 4040 }}
+              containerPort: {{ index .Values.pyroscopeConfigs "api-bind-addr" | trimPrefix ":" | int | default 4040 }}
               protocol: TCP
           {{- if .Values.readinessProbe.enabled }}
           readinessProbe:
